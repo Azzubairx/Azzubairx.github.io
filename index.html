@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="الزبير إبراهيم — مستقل محترف متخصص في الترجمة التحريرية، وتقييم نماذج الذكاء الاصطناعي، وتنسيق الأعمال الأكاديمية والتقنية." />
+  <meta name="description" content="الزبير إبراهيم — مستقل محترف متخصص في الترجمة التحريرية وتقييم الذكاء الاصطناعي." />
   <title>الزبير إبراهيم | مستقل محترف</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -15,17 +15,19 @@
   <nav id="navbar">
     <div class="container">
       <a href="#hero" class="logo">الزبير.</a>
+      
       <ul class="nav-links" id="navLinks">
         <li><a href="#hero" class="active">الرئيسية</a></li>
         <li><a href="#services">الخدمات</a></li>
         <li><a href="#payment">طرائق الدفع</a></li>
         <li><a href="#contact">التواصل</a></li>
       </ul>
+      
       <div class="nav-controls">
         <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع">
           <i class="fas fa-sun"></i>
         </button>
-        <button class="hamburger" id="hamburger">
+        <button class="hamburger" id="hamburger" aria-label="القائمة">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -44,8 +46,7 @@
         </div>
       </div>
       <div class="hero-image reveal">
-        <!-- تأكد أن الصورة الخاصة بك موجودة باسم profile.jpg -->
-        <img src="profile.jpg" alt="الزبير إبراهيم" onerror="this.src='https://placehold.co/400x400/2563eb/ffffff?text=Z'">
+        <img src="profile.jpg" alt="الزبير إبراهيم" onerror="this.src='https://placehold.co/400x400/1E293B/3B82F6?text=Z'">
       </div>
     </div>
   </section>
@@ -59,95 +60,125 @@
       </div>
 
       <div class="services-grid">
-        <!-- جميع البطاقات مزودة بكلاس reveal لتظهر بتأثير حركي -->
+        <!-- بنية البطاقة الصارمة لمنع الانهيار (Strict Box Model) -->
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-language"></i></div>
-          <h3>الترجمة التحريرية والتعريب</h3>
-          <p>ترجمة دقيقة تراعي السياق اللغوي والأبعاد الثقافية بين العربية والإنجليزية.</p>
+          <div class="service-content">
+            <h3>الترجمة التحريرية والتعريب المتقدم</h3>
+            <p>ترجمة دقيقة تراعي السياق اللغوي والأبعاد الثقافية بين العربية والإنجليزية.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-robot"></i></div>
-          <h3>تقييم نماذج الذكاء الاصطناعي</h3>
-          <p>ضبط جودة مخرجات نماذج الذكاء الاصطناعي الكبيرة وتحسين دقتها اللغوية.</p>
+          <div class="service-content">
+            <h3>تقييم نماذج الذكاء الاصطناعي</h3>
+            <p>ضبط جودة مخرجات نماذج الذكاء الاصطناعي الكبيرة وتحسين دقتها اللغوية.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-certificate"></i></div>
-          <h3>تصميم الشهادات والمستندات</h3>
-          <p>التصميم الاحترافي للشهادات والمستندات الرسمية للأفراد والمؤسسات.</p>
+          <div class="service-content">
+            <h3>التصميم الاحترافي للشهادات</h3>
+            <p>التصميم الاحترافي للشهادات والمستندات الرسمية للأفراد والمؤسسات.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3>التنسيق الأكاديمي للبحوث</h3>
-          <p>هيكلة وتنسيق البحوث العلمية بدقة وفق المعايير الدولية المعتمدة.</p>
+          <div class="service-content">
+            <h3>التنسيق الأكاديمي للبحوث</h3>
+            <p>هيكلة وتنسيق البحوث العلمية بدقة وفق المعايير الدولية المعتمدة.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-file-pdf"></i></div>
-          <h3>البحث المتقدم للكتب الرقمية</h3>
-          <p>استخراج المحتوى الأكاديمي والمصادر الرقمية بكفاءة عالية.</p>
+          <div class="service-content">
+            <h3>البحث المتقدم للكتب الرقمية</h3>
+            <p>استخراج المحتوى الأكاديمي والمصادر الرقمية بكفاءة عالية.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-id-card"></i></div>
-          <h3>إعداد السير الذاتية (ATS)</h3>
-          <p>صياغة وتصميم احترافي يضمن تجاوز السير الذاتية لفلاتر الفرز الآلي للتوظيف.</p>
+          <div class="service-content">
+            <h3>إعداد السير الذاتية (ATS)</h3>
+            <p>صياغة وتصميم احترافي يضمن تجاوز السير الذاتية لفلاتر الفرز الآلي للتوظيف.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-spell-check"></i></div>
-          <h3>التدقيق اللغوي والمراجعة</h3>
-          <p>مراجعة نحوية وأسلوبية شاملة لضمان خلو النصوص من الأخطاء.</p>
+          <div class="service-content">
+            <h3>التدقيق اللغوي والمراجعة</h3>
+            <p>مراجعة نحوية وأسلوبية شاملة لضمان خلو النصوص من الأخطاء.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-database"></i></div>
-          <h3>إدخال البيانات والأرشفة</h3>
-          <p>إدخال البيانات الدقيق وإدارة السجلات وتصميم قواعد البيانات.</p>
+          <div class="service-content">
+            <h3>إدخال البيانات والأرشفة</h3>
+            <p>إدخال البيانات الدقيق وإدارة السجلات وتصميم قواعد البيانات.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-table"></i></div>
-          <h3>بناء جداول احترافية (Excel)</h3>
-          <p>تصميم الجداول التحليلية والمعادلات المتقدمة لتسهيل إدارة الأعمال.</p>
+          <div class="service-content">
+            <h3>بناء جداول احترافية (Excel)</h3>
+            <p>تصميم الجداول التحليلية والمعادلات المتقدمة لتسهيل إدارة الأعمال.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-microphone-alt"></i></div>
-          <h3>النسخ النصي (Transcription)</h3>
-          <p>التفريغ النصي الدقيق للمحتوى الصوتي والمرئي بوضوح وسرعة.</p>
+          <div class="service-content">
+            <h3>النسخ النصي (Transcription)</h3>
+            <p>التفريغ النصي الدقيق للمحتوى الصوتي والمرئي بوضوح وسرعة.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-          <h3>الدعم الفني وتشخيص الأعطال</h3>
-          <p>حل مشكلات أنظمة التشغيل (Android, Windows, Linux).</p>
+          <div class="service-content">
+            <h3>الدعم الفني وتشخيص الأعطال</h3>
+            <p>حل مشكلات أنظمة التشغيل (Android, Windows, Linux).</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-closed-captioning"></i></div>
-          <h3>الترجمة المرئية (Subtitling)</h3>
-          <p>إنتاج ترجمات نصية دقيقة متزامنة مع الفيديوهات والأعمال المرئية.</p>
+          <div class="service-content">
+            <h3>الترجمة المرئية (Subtitling)</h3>
+            <p>إنتاج ترجمات نصية دقيقة متزامنة مع الفيديوهات والأعمال المرئية.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-headphones"></i></div>
-          <h3>التدريب في علم الصوتيات</h3>
-          <p>تدريب متخصص في نطق وصوتيات اللغة الإنجليزية (Phonetics).</p>
+          <div class="service-content">
+            <h3>التدريب في علم الصوتيات</h3>
+            <p>تدريب متخصص في نطق وصوتيات اللغة الإنجليزية (Phonetics).</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fab fa-microsoft"></i></div>
-          <h3>الحلول المكتبية المتكاملة</h3>
-          <p>إدارة العمليات عبر حزم Microsoft Office و Google Workspace.</p>
+          <div class="service-content">
+            <h3>الحلول المكتبية المتكاملة</h3>
+            <p>إدارة العمليات عبر حزم Microsoft Office و Google Workspace.</p>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
-          <h3>تحرير المحتوى الأكاديمي</h3>
-          <p>كتابة وصياغة المحتوى الأكاديمي المتقدم باللغة الإنجليزية.</p>
+          <div class="service-content">
+            <h3>تحرير المحتوى الأكاديمي</h3>
+            <p>كتابة وصياغة المحتوى الأكاديمي المتقدم باللغة الإنجليزية.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -185,7 +216,7 @@
 
         <div class="payment-card reveal">
           <div class="pay-logo-wrapper">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a8/99/c8/a899c89f-e69b-67c4-3148-d36366aa579b/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/400x400ia-75.webp" alt="NAB Mobile" class="pay-logo">
+            <img src="https://lypay.gov.ly/wp-content/uploads/2025/06/NAB.svg" alt="NAB Mobile" class="pay-logo">
           </div>
           <span>NAB Mobile</span>
         </div>
@@ -198,7 +229,7 @@
     <div class="container">
       <div class="contact-box reveal">
         <h2>هل لديك مشروع تودّ تنفيذه باحترافية؟</h2>
-        <p style="color: var(--text-muted); margin-top: 10px; margin-bottom: 20px;">
+        <p style="color: var(--text-muted); margin-top: 10px;">
           يسعدني التعاون معك لتحويل متطلباتك إلى نتائج ملموسة، بأعلى معايير الجودة والالتزام التام بالسرية المهنية.
         </p>
         
@@ -222,12 +253,14 @@
 
   <!-- الفوتر -->
   <footer>
-    <p>© 2026 الزبير إبراهيم. جميع الحقوق محفوظة.</p>
+    <div class="container">
+      <p>© 2026 الزبير إبراهيم. جميع الحقوق محفوظة.</p>
+    </div>
   </footer>
 
-  <!-- جافاسكربت التفاعلية (Scroll Reveal & Logic) -->
+  <!-- السكربت (خفيف ولا يسبب تقطيع) -->
   <script>
-    // 1. تبديل الوضع النهاري والليلي
+    // Theme Toggle
     const toggle = document.getElementById('themeToggle');
     const root = document.documentElement;
     const icon = toggle.querySelector('i');
@@ -238,58 +271,6 @@
       icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
     });
 
-    // 2. قائمة الهاتف المتحركة
+    // Mobile Menu
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    const hamburgerIcon = hamburger.querySelector('i');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburgerIcon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburgerIcon.className = 'fas fa-bars';
-      });
-    });
-
-    // 3. تحديد القسم النشط في القائمة أثناء التمرير
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 150) {
-          current = section.getAttribute('id');
-        }
-      });
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        a.classList.remove('active');
-        if (a.getAttribute('href') === `#${current}`) {
-          a.classList.add('active');
-        }
-      });
-    });
-
-    // 4. الحركات التفاعلية عند التمرير (Scroll Reveal)
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target); // تشغيل الحركة مرة واحدة فقط
-        }
-      });
-    }, {
-      threshold: 0.1, // يبدأ الظهور عندما يظهر 10% من العنصر
-      rootMargin: "0px 0px -50px 0px"
-    });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-  </script>
-
-</body>
-</html>
+    const navLinks
