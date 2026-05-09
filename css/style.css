@@ -1,439 +1,314 @@
 /* ============================================================
-   AZZUBAIR IBRAHIM — BULLETPROOF PORTFOLIO
-   Theme: Stable Tech Blue · Calibri Only · RTL
+   AZZUBAIR IBRAHIM — GLASSMORPHISM PORTFOLIO
+   Theme: Tech Blue · Glass Effect · Rounded Edges
    ============================================================ */
 
+/* استيراد الخط اليدوي للشعار فقط */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
 :root {
-  /* ألوان الوضع الليلي (الأساسي) */
-  --bg-main: #0B1120;
-  --bg-card: #151E2F;
-  --bg-nav: rgba(11, 17, 32, 0.9);
+  /* الوضع الليلي */
+  --bg-main: #0B1121; /* لون أزرق ليلي عميق */
+  --bg-glass: rgba(30, 41, 59, 0.4); /* زجاج داكن */
+  --bg-nav: rgba(11, 17, 33, 0.7);
   
   --primary: #3B82F6;
-  --primary-hover: #2563EB;
-  --primary-glow: rgba(59, 130, 246, 0.15);
+  --primary-hover: #60A5FA;
+  --primary-glass: rgba(59, 130, 246, 0.15);
   
   --text-main: #F8FAFC;
   --text-muted: #94A3B8;
   
-  --border: #1E293B;
-  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-primary: rgba(59, 130, 246, 0.3);
   
-  --transition: all 0.3s ease;
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="light"] {
-  /* ألوان الوضع النهاري */
-  --bg-main: #F4F7F9;
-  --bg-card: #FFFFFF;
-  --bg-nav: rgba(244, 247, 249, 0.9);
+  /* الوضع النهاري */
+  --bg-main: #F0F4F8; /* لون رمادي مزرق فاتح */
+  --bg-glass: rgba(255, 255, 255, 0.6); /* زجاج فاتح */
+  --bg-nav: rgba(240, 244, 248, 0.7);
   
   --primary: #2563EB;
   --primary-hover: #1D4ED8;
-  --primary-glow: rgba(37, 99, 235, 0.1);
+  --primary-glass: rgba(37, 99, 235, 0.1);
   
   --text-main: #0F172A;
   --text-muted: #475569;
   
-  --border: #E2E8F0;
-  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --border-glass: rgba(255, 255, 255, 1);
+  --border-primary: rgba(37, 99, 235, 0.3);
+  
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
-/* ── 1. BASE & RESET (منع الاهتزاز) ── */
+/* ── 1. BASE & RESET ── */
 *, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  /* إجبار المتصفح على Calibri مع بديل آمن للأجهزة التي لا تدعمه */
+  /* الخط الأساسي لكل الموقع */
   font-family: 'Calibri', system-ui, -apple-system, sans-serif !important;
   background-color: var(--bg-main);
   color: var(--text-main);
   line-height: 1.7;
   direction: rtl;
-  /* منع الاهتزاز الأفقي قطعياً */
   overflow-x: hidden;
-  width: 100%;
-  position: relative;
   transition: background-color var(--transition), color var(--transition);
+  /* تأثير تمويه في الخلفية يعطي طابع الزجاج */
+  background-image: 
+    radial-gradient(circle at 15% 50%, var(--primary-glass), transparent 25%),
+    radial-gradient(circle at 85% 30%, var(--primary-glass), transparent 25%);
+  background-attachment: fixed;
 }
 
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
 .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+  width: 100%; max-width: 1200px;
+  margin: 0 auto; padding: 0 24px;
 }
 
-/* ── 2. NAVBAR ── */
+/* ── 2. NAVBAR (Glassmorphism) ── */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
+  position: fixed; top: 0; left: 0; right: 0;
   background: var(--bg-nav);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-  height: 80px;
-  display: flex;
-  align-items: center;
-  z-index: 1000;
-  transition: var(--transition);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-glass);
+  height: 80px; display: flex; align-items: center;
+  z-index: 1000; transition: var(--transition);
 }
 
 nav .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
+  /* الخط اليدوي للشعار فقط */
+  font-family: 'Caveat', cursive !important;
+  font-size: 2.8rem;
+  font-weight: 700;
   color: var(--primary);
+  direction: ltr; /* لضمان ظهور الشعار الإنجليزي بشكل صحيح */
 }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
+.nav-links { display: flex; gap: 2rem; }
 .nav-links a {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: var(--text-muted);
+  font-weight: bold; font-size: 1.1rem; color: var(--text-muted);
   transition: var(--transition);
 }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-.nav-links a:hover, .nav-links a.active {
-  color: var(--primary);
-}
-
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+.nav-controls { display: flex; align-items: center; gap: 1rem; }
 
 .theme-toggle {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-glass);
   color: var(--text-main);
-  width: 40px; height: 40px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
-  transition: var(--transition);
+  width: 45px; height: 45px;
+  border-radius: 50%; /* دائري بالكامل */
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; transition: var(--transition);
+  box-shadow: var(--shadow-glass);
 }
-
 .theme-toggle:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  background: var(--primary); color: #fff; border-color: var(--primary);
+  transform: rotate(30deg);
 }
 
-.hamburger {
-  display: none;
-  background: none; border: none;
-  color: var(--text-main);
-  font-size: 1.8rem;
-  cursor: pointer;
-}
+.hamburger { display: none; background: none; border: none; color: var(--text-main); font-size: 1.8rem; cursor: pointer; }
 
 /* ── 3. HERO SECTION ── */
 #hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 80px;
+  min-height: 100vh; display: flex; align-items: center; padding-top: 80px;
 }
 
 .hero-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4rem;
-  width: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 4rem; width: 100%;
 }
 
 .hero-text { flex: 1; }
-
 .hero-text h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  color: var(--text-main);
+  font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2;
+  margin-bottom: 1.5rem; color: var(--text-main);
 }
-
 .hero-text p {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-  max-width: 600px;
+  font-size: 1.2rem; color: var(--text-muted);
+  margin-bottom: 2rem; max-width: 600px;
 }
 
-.btn-group {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
+.btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 .btn {
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
+  padding: 12px 30px;
+  border-radius: 50px; /* حواف دائرية بالكامل */
+  font-size: 1.1rem; font-weight: bold;
+  display: inline-flex; align-items: center; gap: 10px;
+  border: none; cursor: pointer; transition: var(--transition);
+  backdrop-filter: blur(10px);
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: #fff;
+  background: var(--primary); color: #fff;
+  box-shadow: 0 10px 20px var(--primary-glass);
 }
-
 .btn-primary:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
+  background: var(--primary-hover); transform: translateY(-3px);
+  box-shadow: 0 15px 25px var(--primary-glass);
 }
 
 .btn-outline {
-  background: transparent;
+  background: var(--bg-glass);
   color: var(--text-main);
-  border: 2px solid var(--border);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-glass);
 }
-
 .btn-outline:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: var(--primary); color: var(--primary); transform: translateY(-3px);
 }
 
-.hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  /* حجز المساحة لمنع الاهتزاز عند التحميل */
-  min-height: 350px; 
-}
-
+.hero-image { flex: 1; display: flex; justify-content: center; min-height: 350px; }
 .hero-image img {
-  width: 350px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 24px;
-  border: 4px solid var(--border);
-  box-shadow: var(--card-shadow);
+  width: 380px; height: 380px; object-fit: cover;
+  border-radius: 40px; /* حواف دائرية ناعمة جداً للصورة */
+  border: 2px solid var(--border-glass);
+  box-shadow: var(--shadow-glass);
+  transition: var(--transition);
 }
+.hero-image img:hover { transform: scale(1.02) translateY(-10px); border-color: var(--primary); }
 
-/* ── 4. GENERAL SECTIONS ── */
+/* ── 4. SECTIONS & CARDS (Glassmorphism) ── */
 section { padding: 6rem 0; }
 .section-title { text-align: center; margin-bottom: 4rem; }
 .section-title h2 { font-size: 2.5rem; color: var(--text-main); margin-bottom: 0.5rem; }
 .section-title p { font-size: 1.1rem; color: var(--text-muted); }
 
-/* ── 5. SERVICES (Strict Flexbox Grid) ── */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
-  /* يجبر جميع العناصر في الصف على أخذ نفس الطول */
-  align-items: stretch; 
+  gap: 2rem; align-items: stretch; 
 }
 
 .service-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column; /* هيكلة عمودية صارمة */
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  height: 100%;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 28px; /* حواف أكثر دائرية للبطاقات */
+  padding: 2.5rem 2rem; display: flex; flex-direction: column;
+  box-shadow: var(--shadow-glass);
+  transition: var(--transition); height: 100%;
 }
-
 .service-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
+  transform: translateY(-8px); border-color: var(--border-primary);
 }
 
 .service-icon {
-  width: 64px; height: 64px;
-  background: var(--primary-glow);
-  color: var(--primary);
-  border-radius: 12px;
+  width: 70px; height: 70px;
+  background: var(--primary-glass); color: var(--primary);
+  border-radius: 50%; /* أيقونة دائرية بالكامل */
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  flex-shrink: 0; /* يمنع الأيقونة من الانضغاط */
+  font-size: 1.8rem; margin-bottom: 1.5rem; flex-shrink: 0;
 }
 
-/* حاوية النص التي تتمدد تلقائياً */
-.service-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; 
-}
+.service-content { display: flex; flex-direction: column; flex-grow: 1; }
+.service-content h3 { font-size: 1.3rem; color: var(--text-main); margin-bottom: 0.8rem; }
+.service-content p { font-size: 1rem; color: var(--text-muted); flex-grow: 1; }
 
-.service-content h3 {
-  font-size: 1.3rem;
-  color: var(--text-main);
-  margin-bottom: 0.5rem;
-}
-
-.service-content p {
-  font-size: 1rem;
-  color: var(--text-muted);
-  flex-grow: 1; /* يجبر الوصف على ملء المساحة المتبقية لتوحيد الطول */
-}
-
-/* ── 6. PAYMENTS (Strict Logo Dimensions) ── */
+/* ── 5. PAYMENTS (Smaller, Glassy, Blended) ── */
 .payments-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
+  /* تصغير حجم البطاقات */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
 }
 
 .payment-card {
-  background: #ffffff !important; /* خلفية بيضاء دائمة لحماية الشعارات */
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 1.5rem; /* تقليل الحشوة لتصغير البطاقة */
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  box-shadow: var(--shadow-glass);
+  transition: var(--transition);
 }
-
-.payment-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
-}
+.payment-card:hover { transform: translateY(-5px); border-color: var(--border-primary); }
 
 .pay-logo-wrapper {
-  height: 60px; /* مساحة ثابتة تماماً للشعار */
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 65px; width: 100%;
+  /* خلفية بيضاء ناعمة تحت الشعار ليتناسب مع الوضع الليلي بدون تشويه */
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  display: flex; justify-content: center; align-items: center;
+  padding: 10px;
 }
 
 .pay-logo {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain; /* يمنع تمطط الصورة نهائياً */
+  max-height: 100%; max-width: 100%; object-fit: contain;
 }
 
-.payment-card span {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #0F172A !important; /* نص داكن دائماً */
-  text-align: center;
-}
+.payment-card span { font-weight: bold; font-size: 1rem; color: var(--text-main); text-align: center; }
+.cash-icon { font-size: 2.5rem; color: #10B981; }
 
-.cash-icon { font-size: 3rem; color: #10B981; }
-
-/* ── 7. CONTACT ── */
+/* ── 6. CONTACT ── */
 .contact-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 4rem 2rem;
-  text-align: center;
-  box-shadow: var(--card-shadow);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: 32px; padding: 4rem 2rem; text-align: center;
+  box-shadow: var(--shadow-glass);
 }
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-
+.contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 2.5rem; }
 .contact-item {
-  background: var(--bg-main);
-  border: 1px solid var(--border);
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: var(--text-main);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: var(--transition);
+  background: var(--bg-main); border: 1px solid var(--border-glass);
+  padding: 1rem 2rem; border-radius: 50px; font-weight: bold; font-size: 1.1rem; color: var(--text-main);
+  display: flex; align-items: center; gap: 10px; transition: var(--transition);
 }
+.contact-item:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-3px); }
 
-.contact-item:hover {
-  background: var(--primary);
-  color: #fff;
-  border-color: var(--primary);
-}
+/* ── 7. FOOTER ── */
+footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-glass); color: var(--text-muted); }
 
-/* ── 8. FOOTER ── */
-footer {
-  text-align: center;
-  padding: 2rem;
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
-}
-
-/* ── 9. ANIMATIONS (Safe Reveal) ── */
+/* ── 8. SAFE ANIMATIONS (يمنع الصفحة البيضاء) ── */
+/* 
+   تم التخلص من opacity: 0 الافتراضي في الـ CSS 
+   سيقوم الجافاسكربت بإضافة كلاس .hidden لمنع اختفاء العناصر إذا تعطل السكربت 
+*/
 .reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform; /* تحسين أداء المتصفح لمنع التقطيع */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
 }
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.hidden { opacity: 0; transform: translateY(30px); }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-/* ── 10. RESPONSIVE DESIGN ── */
+/* ── 9. RESPONSIVE ── */
 @media (max-width: 992px) {
-  .hero-wrapper {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
+  .hero-wrapper { flex-direction: column-reverse; text-align: center; }
   .btn-group { justify-content: center; }
   .hero-image img { width: 300px; height: 300px; }
 }
 
 @media (max-width: 768px) {
   .hamburger { display: block; }
-  
   .nav-links {
-    position: fixed;
-    top: 80px; left: 0; right: 0;
-    background: var(--bg-card);
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    padding: 2rem;
-    gap: 1.5rem;
-    clip-path: circle(0% at top right); /* حركة ظهور نظيفة بدون اهتزاز الشاشة */
-    transition: clip-path 0.4s ease-in-out;
+    position: fixed; top: 80px; left: 0; right: 0;
+    background: var(--bg-nav); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+    flex-direction: column; padding: 2rem; gap: 1.5rem;
+    clip-path: circle(0% at top right); transition: clip-path 0.4s ease-in-out;
   }
-  
-  .nav-links.active {
-    clip-path: circle(150% at top right);
-  }
-
+  .nav-links.active { clip-path: circle(150% at top right); }
   .nav-links a { font-size: 1.2rem; display: block; text-align: center; }
   .contact-item { width: 100%; justify-content: center; }
 }
