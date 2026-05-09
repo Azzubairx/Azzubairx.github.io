@@ -1,59 +1,66 @@
 /* ============================================================
-   AZZUBAIR IBRAHIM — INTERACTIVE PORTFOLIO
-   Theme: Dynamic Tech Blue · Calibri Only · RTL
+   AZZUBAIR IBRAHIM — BULLETPROOF PORTFOLIO
+   Theme: Stable Tech Blue · Calibri Only · RTL
    ============================================================ */
 
-/* ── متغيرات الألوان (الأزرق الملكي) ── */
 :root {
-  /* الوضع الليلي */
-  --bg-main: #0f172a;
-  --bg-card: #1e293b;
-  --bg-nav: rgba(15, 23, 42, 0.85);
+  /* ألوان الوضع الليلي (الأساسي) */
+  --bg-main: #0B1120;
+  --bg-card: #151E2F;
+  --bg-nav: rgba(11, 17, 32, 0.9);
   
-  --primary: #3b82f6;
-  --primary-hover: #60a5fa;
-  --primary-glow: rgba(59, 130, 246, 0.2);
+  --primary: #3B82F6;
+  --primary-hover: #2563EB;
+  --primary-glow: rgba(59, 130, 246, 0.15);
   
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
   
-  --border: #334155;
-  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --border: #1E293B;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   
-  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.3s ease;
 }
 
 [data-theme="light"] {
-  /* الوضع النهاري */
-  --bg-main: #f0f4f8;
-  --bg-card: #ffffff;
-  --bg-nav: rgba(255, 255, 255, 0.9);
+  /* ألوان الوضع النهاري */
+  --bg-main: #F4F7F9;
+  --bg-card: #FFFFFF;
+  --bg-nav: rgba(244, 247, 249, 0.9);
   
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-glow: rgba(37, 99, 235, 0.15);
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-glow: rgba(37, 99, 235, 0.1);
   
-  --text-main: #0f172a;
+  --text-main: #0F172A;
   --text-muted: #475569;
   
-  --border: #e2e8f0;
-  --card-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+  --border: #E2E8F0;
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
 }
 
-/* ── الإعدادات الأساسية والخط ── */
-* {
-  margin: 0; padding: 0; box-sizing: border-box;
-  font-family: 'Calibri', sans-serif !important;
+/* ── 1. BASE & RESET (منع الاهتزاز) ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
+  /* إجبار المتصفح على Calibri مع بديل آمن للأجهزة التي لا تدعمه */
+  font-family: 'Calibri', system-ui, -apple-system, sans-serif !important;
   background-color: var(--bg-main);
   color: var(--text-main);
+  line-height: 1.7;
   direction: rtl;
-  line-height: 1.6;
+  /* منع الاهتزاز الأفقي قطعياً */
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
   transition: background-color var(--transition), color var(--transition);
 }
 
@@ -61,37 +68,48 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* ── شريط التنقل (Navbar) ── */
+/* ── 2. NAVBAR ── */
 nav {
-  position: fixed; top: 0; width: 100%;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   background: var(--bg-nav);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
-  padding: 1rem 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
   z-index: 1000;
   transition: var(--transition);
 }
 
 nav .container {
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav .logo {
-  font-size: 1.8rem; font-weight: bold; color: var(--primary);
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary);
 }
 
 .nav-links {
-  display: flex; gap: 2rem; align-items: center;
+  display: flex;
+  gap: 2rem;
 }
 
 .nav-links a {
-  font-size: 1.1rem; font-weight: bold;
-  color: var(--text-muted); transition: var(--transition);
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: var(--transition);
 }
 
 .nav-links a:hover, .nav-links a.active {
@@ -99,182 +117,323 @@ nav .logo {
 }
 
 .nav-controls {
-  display: flex; gap: 1rem; align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .theme-toggle {
-  background: transparent; border: 1px solid var(--border);
-  color: var(--text-main); width: 40px; height: 40px;
-  border-radius: 50%; cursor: pointer; font-size: 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
   display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
   transition: var(--transition);
 }
 
 .theme-toggle:hover {
-  background: var(--primary); color: #fff; border-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
-.hamburger { display: none; background: none; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer; }
+.hamburger {
+  display: none;
+  background: none; border: none;
+  color: var(--text-main);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
 
-/* ── الواجهة الرئيسية (Hero) ── */
+/* ── 3. HERO SECTION ── */
 #hero {
   min-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  padding-top: 80px; position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
 }
 
 .hero-wrapper {
-  display: flex; align-items: center; justify-content: space-between; gap: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  width: 100%;
 }
 
 .hero-text { flex: 1; }
 
 .hero-text h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.2; margin-bottom: 1rem; color: var(--text-main);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
 }
 
 .hero-text p {
-  font-size: 1.2rem; color: var(--text-muted);
-  margin-bottom: 2rem; max-width: 600px;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 600px;
 }
 
-.btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 
 .btn {
-  padding: 0.8rem 2rem; border-radius: 8px; font-size: 1.1rem; font-weight: bold;
-  display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
 .btn-primary {
-  background: var(--primary); color: #fff;
-  box-shadow: 0 4px 15px var(--primary-glow);
+  background: var(--primary);
+  color: #fff;
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px var(--primary-glow); }
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
 
 .btn-outline {
-  background: transparent; color: var(--text-main); border: 2px solid var(--border);
+  background: transparent;
+  color: var(--text-main);
+  border: 2px solid var(--border);
 }
-.btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
 
 .hero-image {
-  flex: 1; display: flex; justify-content: center; position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  /* حجز المساحة لمنع الاهتزاز عند التحميل */
+  min-height: 350px; 
 }
 
 .hero-image img {
-  width: 350px; height: 350px; object-fit: cover; border-radius: 30px;
-  border: 4px solid var(--bg-card); box-shadow: var(--card-shadow);
-  transition: var(--transition);
-}
-.hero-image img:hover { transform: scale(1.02); border-color: var(--primary); }
-
-/* ── الأقسام العامة ── */
-section { padding: 5rem 0; }
-.section-title { text-align: center; margin-bottom: 3rem; }
-.section-title h2 { font-size: 2.5rem; color: var(--text-main); margin-bottom: 0.5rem; }
-.section-title p { font-size: 1.1rem; color: var(--text-muted); }
-
-/* ── الخدمات (استقرار 100%) ── */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.service-card {
-  background: var(--bg-card); border: 1px solid var(--border);
-  padding: 2rem; border-radius: 16px;
-  display: flex; flex-direction: column;
-  transition: var(--transition);
-  height: 100%; /* إجبار البطاقات على أخذ نفس الطول */
-}
-
-.service-card:hover {
-  border-color: var(--primary); transform: translateY(-5px);
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 4px solid var(--border);
   box-shadow: var(--card-shadow);
 }
 
-.service-icon {
-  width: 60px; height: 60px; border-radius: 12px;
-  background: var(--primary-glow); color: var(--primary);
-  display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
-  margin-bottom: 1.5rem; transition: var(--transition);
+/* ── 4. GENERAL SECTIONS ── */
+section { padding: 6rem 0; }
+.section-title { text-align: center; margin-bottom: 4rem; }
+.section-title h2 { font-size: 2.5rem; color: var(--text-main); margin-bottom: 0.5rem; }
+.section-title p { font-size: 1.1rem; color: var(--text-muted); }
+
+/* ── 5. SERVICES (Strict Flexbox Grid) ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  /* يجبر جميع العناصر في الصف على أخذ نفس الطول */
+  align-items: stretch; 
 }
 
-.service-card:hover .service-icon { background: var(--primary); color: #fff; transform: scale(1.1); }
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; /* هيكلة عمودية صارمة */
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+}
 
-.service-card h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--text-main); }
-.service-card p { font-size: 1rem; color: var(--text-muted); flex-grow: 1; }
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
 
-/* ── طرق الدفع (استقرار الشعارات) ── */
+.service-icon {
+  width: 64px; height: 64px;
+  background: var(--primary-glow);
+  color: var(--primary);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0; /* يمنع الأيقونة من الانضغاط */
+}
+
+/* حاوية النص التي تتمدد تلقائياً */
+.service-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+
+.service-content h3 {
+  font-size: 1.3rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.service-content p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  flex-grow: 1; /* يجبر الوصف على ملء المساحة المتبقية لتوحيد الطول */
+}
+
+/* ── 6. PAYMENTS (Strict Logo Dimensions) ── */
 .payments-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
 }
 
 .payment-card {
-  background: #ffffff !important; /* ثابت أبيض لحماية الشعارات */
-  border: 1px solid var(--border); padding: 2rem; border-radius: 16px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
-  transition: var(--transition);
+  background: #ffffff !important; /* خلفية بيضاء دائمة لحماية الشعارات */
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.payment-card:hover { transform: translateY(-5px); box-shadow: var(--card-shadow); border-color: var(--primary); }
+.payment-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
 
 .pay-logo-wrapper {
-  height: 60px; width: 100%; display: flex; justify-content: center; align-items: center;
+  height: 60px; /* مساحة ثابتة تماماً للشعار */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pay-logo {
-  max-height: 100%; max-width: 100%; object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* يمنع تمطط الصورة نهائياً */
 }
 
-.payment-card span { font-weight: bold; font-size: 1.1rem; color: #0f172a !important; }
-.cash-icon { font-size: 3rem; color: #10b981; }
+.payment-card span {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #0F172A !important; /* نص داكن دائماً */
+  text-align: center;
+}
 
-/* ── التواصل ── */
+.cash-icon { font-size: 3rem; color: #10B981; }
+
+/* ── 7. CONTACT ── */
 .contact-box {
-  background: var(--bg-card); border: 1px solid var(--border);
-  padding: 4rem 2rem; border-radius: 20px; text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 4rem 2rem;
+  text-align: center;
   box-shadow: var(--card-shadow);
 }
 
 .contact-links {
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
 }
 
 .contact-item {
-  background: var(--bg-main); border: 1px solid var(--border);
-  padding: 1rem 2rem; border-radius: 50px; font-weight: bold; font-size: 1.1rem;
-  display: flex; align-items: center; gap: 10px; transition: var(--transition); color: var(--text-main);
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
 }
 
-.contact-item:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-3px); }
+.contact-item:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
 
-/* ── الفوتر ── */
-footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); margin-top: 3rem; }
+/* ── 8. FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
 
-/* ── تأثيرات الحركة (Scroll Reveal) التفاعلية ── */
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+/* ── 9. ANIMATIONS (Safe Reveal) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform; /* تحسين أداء المتصفح لمنع التقطيع */
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* ── التجاوب (الهواتف) ── */
-@media (max-width: 900px) {
-  .hero-wrapper { flex-direction: column-reverse; text-align: center; }
+/* ── 10. RESPONSIVE DESIGN ── */
+@media (max-width: 992px) {
+  .hero-wrapper {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
   .btn-group { justify-content: center; }
-  .hero-image img { width: 280px; height: 280px; }
+  .hero-image img { width: 300px; height: 300px; }
 }
 
 @media (max-width: 768px) {
   .hamburger { display: block; }
+  
   .nav-links {
-    position: fixed; top: 70px; right: -100%; width: 100%; background: var(--bg-card);
-    flex-direction: column; padding: 2rem 0; border-bottom: 1px solid var(--border);
-    transition: 0.4s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 80px; left: 0; right: 0;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    clip-path: circle(0% at top right); /* حركة ظهور نظيفة بدون اهتزاز الشاشة */
+    transition: clip-path 0.4s ease-in-out;
   }
-  .nav-links.active { right: 0; }
-  .nav-links a { font-size: 1.2rem; }
+  
+  .nav-links.active {
+    clip-path: circle(150% at top right);
+  }
+
+  .nav-links a { font-size: 1.2rem; display: block; text-align: center; }
   .contact-item { width: 100%; justify-content: center; }
 }
