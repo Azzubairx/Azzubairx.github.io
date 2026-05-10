@@ -80,6 +80,22 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .theme-toggle:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: rotate(30deg); }
 .hamburger { display: none; background: none; border: none; color: var(--text-main); font-size: 1.8rem; cursor: pointer; }
 
+.hamburger {
+    order: 1;
+}
+
+.nav-controls {
+    order: 2;
+}
+
+.nav-links {
+    order: 3;
+}
+
+.logo {
+    order: 4;
+}
+
 /* ── 3. HERO SECTION ── */
 #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 120px; padding-bottom: 60px; }
 .hero-wrapper { display: flex; align-items: center; justify-content: center; gap: 3rem; width: 100%; }
