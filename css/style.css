@@ -322,16 +322,6 @@ section { padding: 6rem 0; }
 }
 .contact-item:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-3px); }
 
-/* تصغير قالب الموقع الجغرافي (طبرق، ليبيا) بالكامل ليحيط بالنص فقط */
-.contact-links div.contact-item {
-  padding: 0.4rem 1rem; /* تقليل الهوامش من جميع الاتجاهات */
-  font-size: 0.85rem; /* تصغير حجم الخط */
-  width: fit-content; /* إجبار العرض على الانكماش ليناسب النص فقط */
-  height: fit-content; /* إجبار الطول على الانكماش */
-  align-self: center; /* منع المتصفح من مط القالب ليتساوى مع الأزرار الأخرى */
-  opacity: 0.85; /* جعله باهت قليلاً لتمييزه عن أزرار الضغط */
-}
-
 /* ── 7. FOOTER ── */
 footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-glass); color: var(--text-muted); }
 
