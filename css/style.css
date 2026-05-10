@@ -70,7 +70,7 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .nav-links { display: flex; gap: 2rem; }
 .nav-links a { font-weight: bold; font-size: 1.1rem; color: var(--text-main); transition: var(--transition); }
 .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-.nav-controls { display: flex; align-items: center; gap: 1rem flex-direction: row-reverse; }
+.nav-controls { display: flex; align-items: center; gap: 1rem; }
 .theme-toggle {
   background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-glass);
   color: var(--text-main); width: 45px; height: 45px; border-radius: 50%;
