@@ -1,9 +1,8 @@
 /* ============================================================
-   AZZUBAIR IBRAHIM — GLASSMORPHISM PORTFOLIO
+   AZZUBAIR IBRAHIM — MULTI-PAGE GLASSMORPHISM PORTFOLIO
    Theme: Tech Blue · Glass Effect · Perfect Circle Profile
    ============================================================ */
 
-/* استيراد الخط اليدوي للشعار فقط وخط Rakkas للاسم */
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap');
 
@@ -36,29 +35,22 @@
   --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
-/* ── 1. BASE & RESET (Strict Anti-Overflow) ── */
+/* ── BASE & RESET ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { 
-  scroll-behavior: smooth; 
-  /* الأوامر الثلاثة التالية تمنع انزياح الشاشة يميناً ويساراً بشكل قاطع */
-  max-width: 100vw; 
-  width: 100%; 
-  overflow-x: hidden; 
-}
+html, body { scroll-behavior: smooth; max-width: 100vw; width: 100%; overflow-x: hidden; }
 body {
   font-family: 'Calibri', system-ui, -apple-system, sans-serif !important;
   background-color: var(--bg-main); color: var(--text-main);
   line-height: 1.7; direction: rtl;
   transition: background-color var(--transition), color var(--transition);
   background-image: radial-gradient(circle at 15% 50%, var(--primary-glass), transparent 25%), radial-gradient(circle at 85% 30%, var(--primary-glass), transparent 25%);
-  background-attachment: fixed;
-  word-wrap: break-word;
+  background-attachment: fixed; word-wrap: break-word;
 }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-/* ── 2. NAVBAR ── */
+/* ── NAVBAR ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; background: var(--bg-nav);
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
@@ -80,12 +72,17 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .theme-toggle:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: rotate(30deg); }
 .hamburger { display: none; background: none; border: none; color: var(--text-main); font-size: 1.8rem; cursor: pointer; }
 
-/* ── 3. HERO SECTION ── */
+/* ── HERO SECTION (HOME) ── */
 #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 120px; padding-bottom: 60px; }
 .hero-wrapper { display: flex; align-items: center; justify-content: center; gap: 3rem; width: 100%; }
 .hero-text { flex: 1; max-width: 650px; }
 .hero-text h1 { font-family: 'Rakkas', serif !important; font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; color: var(--text-main); }
 .hero-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; }
+
+/* ── PAGE HERO (SERVICES & CONTACT) ── */
+.page-hero { padding-top: 140px; padding-bottom: 40px; text-align: center; }
+.page-hero h1 { font-family: 'Rakkas', serif !important; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; color: var(--primary); margin-bottom: 1rem; }
+.page-hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
 
 .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn {
@@ -106,14 +103,13 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 }
 .hero-image img:hover { transform: scale(1.02); border-color: var(--primary); }
 
-/* Authority & Scarcity */
 .authority-badge {
   display: inline-flex; align-items: center; gap: 8px; background: var(--primary-glass); color: var(--primary);
   padding: 6px 16px; border-radius: 50px; font-weight: bold; font-size: 0.95rem; margin-bottom: 1.5rem; border: 1px solid var(--border-primary);
 }
 .scarcity-text { color: var(--primary) !important; font-weight: bold; margin-bottom: 2rem !important; }
 
-/* ── 4. HOW WE WORK (STEPS) ── */
+/* ── HOW WE WORK ── */
 .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
 .step-card {
   background: var(--bg-glass); backdrop-filter: blur(16px); border: 1px solid var(--border-glass);
@@ -127,10 +123,8 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .step-card h3 { color: var(--text-main); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1.3rem;}
 .step-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 0; }
 
-/* ── 5. SECTIONS, CARDS & DIVIDERS ── */
-section { padding: 5rem 0; position: relative; }
-
-/* الفاصل الزجاجي الأنيق بين الأقسام */
+/* ── SECTIONS & CARDS ── */
+section { padding: 4rem 0; position: relative; }
 section:not(:last-of-type)::after {
   content: ''; position: absolute; bottom: 0; left: 15%; right: 15%; height: 1px;
   background: linear-gradient(90deg, transparent, var(--border-primary), transparent); opacity: 0.6;
@@ -164,7 +158,7 @@ section:not(:last-of-type)::after {
   font-size: 0.95rem; color: var(--text-main); font-weight: bold; opacity: 0.9;
 }
 
-/* ── 6. PAYMENTS ── */
+/* ── PAYMENTS ── */
 .payments-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
 .payment-card {
   background: #ffffff !important; border: 1px solid var(--border-glass); border-radius: 16px; padding: 2rem;
@@ -177,7 +171,7 @@ section:not(:last-of-type)::after {
 .payment-card span { font-weight: bold; font-size: 1.1rem; color: #0F172A !important; text-align: center; }
 .cash-icon { font-size: 3rem; color: #10B981; }
 
-/* ── 7. TERMS GRID ── */
+/* ── TERMS GRID ── */
 .terms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
 .term-card {
   background: var(--bg-glass); backdrop-filter: blur(16px); border: 1px solid var(--border-glass);
@@ -189,7 +183,7 @@ section:not(:last-of-type)::after {
 .term-content h3 { font-size: 1.25rem; color: var(--text-main); margin-bottom: 0.5rem; }
 .term-content p { font-size: 1rem; color: var(--text-muted); }
 
-/* ── 8. CONTACT & FORM ── */
+/* ── CONTACT & FORM ── */
 .contact-box {
   background: var(--bg-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass);
   border-radius: 32px; padding: 4rem 2rem; text-align: center; box-shadow: var(--shadow-glass);
@@ -223,68 +217,39 @@ section:not(:last-of-type)::after {
 .contact-item:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-3px); }
 .contact-links div.contact-item { padding: 0.4rem 1rem; font-size: 0.85rem; width: fit-content; height: fit-content; align-self: center; opacity: 0.85; }
 
-
-/* ============================================================
-   9. ABOUT PAGE SPECIFIC STYLES (تم إصلاحها وإضافتها بالكامل)
-   ============================================================ */
-
+/* ── ABOUT PAGE STYLES ── */
 .about-card {
   background: var(--bg-glass); backdrop-filter: blur(16px); border: 1px solid var(--border-glass);
   border-radius: 28px; padding: 3rem; box-shadow: var(--shadow-glass); margin-bottom: 2rem;
 }
-
-/* حل مشكلة الصورة العملاقة وتنسيق الواجهة في صفحة من أنا */
-.about-card-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-}
-.about-text-content {
-  flex: 1;
-}
-.about-image-content {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-}
-/* فرض الأبعاد الصارمة للصورة في صفحة من أنا لمنع التمدد */
+.about-card-wrapper { display: flex; align-items: center; gap: 3rem; }
+.about-text-content { flex: 1; }
+.about-image-content { flex-shrink: 0; display: flex; justify-content: center; }
 .about-profile-img {
-  width: 280px !important;
-  height: 280px !important;
-  aspect-ratio: 1 / 1 !important;
-  object-fit: cover !important;
-  border-radius: 50% !important;
-  border: 4px solid var(--border-glass);
-  box-shadow: var(--shadow-glass), 0 0 30px var(--primary-glass);
+  width: 280px !important; height: 280px !important; aspect-ratio: 1 / 1 !important; object-fit: cover !important;
+  border-radius: 50% !important; border: 4px solid var(--border-glass); box-shadow: var(--shadow-glass), 0 0 30px var(--primary-glass);
 }
-
 .personal-voice {
   font-size: 1.2rem; color: var(--text-main); font-style: italic; margin: 1.5rem 0;
   line-height: 1.8; border-right: 4px solid var(--primary); padding-right: 15px;
   background: var(--primary-glass); padding: 15px 20px 15px 15px; border-radius: 12px;
 }
-
 .page-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 3rem; }
 .page-nav a {
   background: var(--bg-glass); border: 1px solid var(--border-glass); padding: 8px 20px;
   border-radius: 50px; font-size: 0.95rem; font-weight: bold; color: var(--text-main); transition: var(--transition);
 }
 .page-nav a:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-2px); }
-
 .research-highlight {
   background: linear-gradient(135deg, var(--bg-glass), var(--primary-glass)); border: 1px solid var(--primary);
   border-radius: 24px; padding: 2.5rem; margin-bottom: 4rem; box-shadow: 0 10px 30px var(--primary-glass); position: relative;
 }
 .research-highlight i { position: absolute; top: 20px; left: 20px; font-size: 3rem; color: var(--primary); opacity: 0.2; }
-
 .subsection-title { font-size: 1.8rem; color: var(--text-main); margin-bottom: 2rem; text-align: center; }
-
-/* هيكلة الجدول الزمني (Timeline) */
 .resume-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; }
 .resume-header { display: flex; align-items: center; gap: 15px; margin-bottom: 2rem; color: var(--primary); }
 .resume-header h3 { font-size: 1.6rem; color: var(--text-main); }
 .resume-header i { font-size: 2rem; }
-
 .timeline { border-right: 3px solid var(--border-primary); padding-right: 20px; }
 .timeline-item { position: relative; margin-bottom: 2.5rem; }
 .timeline-item::before {
@@ -298,22 +263,18 @@ section:not(:last-of-type)::after {
 }
 .part-time { font-size: 0.8rem; background: var(--bg-glass); border: 1px solid var(--border-glass); padding: 2px 8px; border-radius: 10px; color: var(--text-muted); margin-right: 10px; }
 .timeline-item p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
-
-/* Span Badges (اللغات، الشهادات، الكفاءات) */
 .cert-box { margin-bottom: 1.5rem; }
 .badge-tag {
   display: inline-flex; align-items: center; gap: 8px; background: var(--primary-glass); color: var(--primary);
   padding: 8px 18px; border-radius: 50px; font-size: 0.95rem; font-weight: bold; margin-bottom: 8px; border: 1px solid var(--border-primary);
 }
 .cert-box p { margin-top: 0; color: var(--text-muted); font-size: 1rem; }
-
 .lang-container { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
 .lang-tag {
   background: var(--bg-glass); border: 1px solid var(--border-glass); color: var(--text-main);
   padding: 8px 18px; border-radius: 50px; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; box-shadow: var(--shadow-glass);
 }
 .lang-tag strong { color: var(--primary); }
-
 .competency-tags { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
 .comp-tag {
   background: var(--bg-main); border: 1px solid var(--border-glass); color: var(--text-muted);
@@ -321,18 +282,19 @@ section:not(:last-of-type)::after {
 }
 .comp-tag:hover { border-color: var(--primary); color: var(--text-main); transform: translateX(-5px); }
 
+/* ── CTA BOTTOM ── */
 .about-cta {
   text-align: center; padding: 4rem 2rem; background: var(--bg-glass); border-radius: 32px;
   border: 1px solid var(--border-glass); margin: 2rem auto; max-width: 800px;
 }
 
-/* ── 10. SAFE ANIMATIONS & FOOTER ── */
-footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-glass); color: var(--text-muted); }
+/* ── ANIMATIONS & FOOTER ── */
+footer { text-align: center; padding: 2rem; color: var(--text-muted); position: relative; }
 .reveal { transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
 .reveal.hidden { opacity: 0; transform: translateY(30px); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* ── 11. RESPONSIVE (الهواتف والأجهزة اللوحية) ── */
+/* ── RESPONSIVE ── */
 @media (max-width: 992px) {
   .hero-wrapper { flex-direction: column-reverse; text-align: center; }
   .btn-group { justify-content: center; }
@@ -340,7 +302,6 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-g
 }
 
 @media (max-width: 768px) {
-  /* Navbar */
   .hamburger { display: block; }
   .nav-links {
     position: fixed; top: 80px; left: 0; right: 0;
@@ -350,16 +311,12 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-g
   }
   .nav-links.active { clip-path: circle(150% at top right); }
   .nav-links a { font-size: 1.2rem; display: block; text-align: center; }
-  
-  /* Layout Adjustments */
   .form-group { flex-direction: column; }
   .hero-stats { justify-content: center; flex-wrap: wrap; }
   .contact-item { width: 100%; justify-content: center; }
   .terms-grid { grid-template-columns: 1fr; }
   .term-card { flex-direction: column; align-items: center; text-align: center; }
   .term-icon { margin-top: 0; margin-bottom: 1rem; }
-  
-  /* إصلاح صفحة من أنا على الجوال */
   .about-card { padding: 1.5rem; }
   .about-card-wrapper { flex-direction: column-reverse; text-align: center; gap: 2rem;}
   .personal-voice { text-align: right; font-size: 1.1rem; }
