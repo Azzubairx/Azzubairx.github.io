@@ -30,28 +30,26 @@
   <div class="page-hero">
     <div class="container reveal">
       <h1>التواصل والدفع</h1>
-      <p>مستعد لبدء مشروعك؟ أرسل التفاصيل أدناه وسأرد عليك في أقرب وقت لتقييم حجم العمل والبدء فيه فوراً.</p>
+      <p>مستعد لبدء مشروعك؟ أرسل التفاصيل أدناه وسأرد عليك في أقرب وقت لتقييم نطاق العمل والشروع فيه فورًا.</p>
     </div>
   </div>
 
-  <!-- التواصل -->
   <section id="contact" style="padding-top: 0;">
     <div class="container">
       <div class="contact-box reveal">
         <h2>أرسل تفاصيل مشروعك</h2>
-        <p class="scarcity-text">أقبل عدداً محدوداً من المشاريع شهرياً لضمان الجودة والسرية التامة.</p>
+        <p class="scarcity-text">أقبل عددًا محدودًا من المشاريع شهريًّ لضمان الجودة والسرية التامة لكل مشروع.</p>
         
-        <!-- Formspree (استبدل YOUR_FORM_ID برمزك) -->
         <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
           <div class="form-group">
-            <label>الاسم الكريم<br><input type="text" name="name" required></label>
+            <label>الاسم<br><input type="text" name="name" required></label>
             <label>البريد الإلكتروني<br><input type="email" name="email" required></label>
           </div>
-          <label>وصف المشروع المختصر<br><textarea name="message" rows="5" required></textarea></label>
-          <button type="submit" class="btn btn-primary form-submit">إرسال الطلب الآن</button>
+          <label>وصف مختصر للمشروع<br><textarea name="message" rows="5" required></textarea></label>
+          <button type="submit" class="btn btn-primary form-submit">إرسال الطلب</button>
         </form>
 
-        <div class="divider"><span>أو عبر الروابط المباشرة</span></div>
+        <div class="divider"><span>أو تواصل مباشرة عبر</span></div>
 
         <div class="contact-links">
           <a href="https://t.me/azzubairx" target="_blank" class="contact-item"><i class="fab fa-telegram"></i> تليغرام</a>
@@ -63,12 +61,11 @@
     </div>
   </section>
 
-  <!-- الدفع -->
   <section id="payment">
     <div class="container">
       <div class="section-title reveal">
         <h2>طرائق الدفع المتاحة</h2>
-        <p>بعد الاتفاق على تفاصيل المشروع، يمكنك تسديد الدفعات عبر إحدى الوسائل التالية بكل أمان:</p>
+        <p>بعد الاتفاق على تفاصيل المشروع، يمكن تسديد الدفعات بأمان عبر إحدى الوسائل التالية:</p>
       </div>
       <div class="payments-grid">
         <div class="payment-card reveal">
@@ -85,7 +82,7 @@
         </div>
         <div class="payment-card reveal">
           <div class="pay-logo-wrapper"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a8/99/c8/a899c89f-e69b-67c4-3148-d36366aa579b/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/400x400ia-75.webp" alt="NAB Mobile" class="pay-logo" loading="lazy"></div>
-          <span>NAB Mobile - شمال أفريقيا</span>
+          <span>NAB Mobile — شمال أفريقيا</span>
         </div>
       </div>
     </div>
@@ -97,112 +94,41 @@
 
   <script data-goatcounter="https://azzubairx.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script>
-    // 1. منع اختفاء العناصر عند تعطل الجافاسكربت
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('hidden'));
-
-    // 2. إعدادات المظهر التلقائي (الوضع الليلي/النهاري)
     const toggle = document.getElementById('themeToggle');
     const root = document.documentElement;
     const icon = toggle.querySelector('i');
-
-    // التحقق من تفضيلات النظام المحفوظة أو إعدادات الجهاز
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-
-    // تحديد المظهر الأولي
     let currentTheme = 'dark';
-    if (savedTheme) {
-      currentTheme = savedTheme; // احترام اختيار الزائر السابق
-    } else if (systemPrefersLight) {
-      currentTheme = 'light'; // التوافق مع نظام جهاز الزائر
-    }
-
-    // تطبيق المظهر الأولي
-    if (currentTheme === 'light') {
-      root.setAttribute('data-theme', 'light');
-      icon.className = 'fas fa-sun';
-    } else {
-      root.setAttribute('data-theme', 'dark');
-      icon.className = 'fas fa-moon';
-    }
-
-    // الاستماع لضغطات زر التبديل اليدوي
+    if (savedTheme) { currentTheme = savedTheme; } else if (systemPrefersLight) { currentTheme = 'light'; }
+    if (currentTheme === 'light') { root.setAttribute('data-theme', 'light'); icon.className = 'fas fa-sun'; } else { root.setAttribute('data-theme', 'dark'); icon.className = 'fas fa-moon'; }
     toggle.addEventListener('click', () => {
       const isDark = root.getAttribute('data-theme') === 'dark';
       const newTheme = isDark ? 'light' : 'dark';
-      
       root.setAttribute('data-theme', newTheme);
       icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
       localStorage.setItem('theme', newTheme);
     });
-
-    // الاستماع لتغير مظهر جهاز الزائر في الوقت الفعلي
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-      // يتغير فقط إذا لم يكن الزائر قد اختار مظهراً يدوياً
       if (!localStorage.getItem('theme')) {
         const newTheme = e.matches ? 'light' : 'dark';
         root.setAttribute('data-theme', newTheme);
         icon.className = e.matches ? 'fas fa-sun' : 'fas fa-moon';
       }
     });
-
-    // 3. القائمة الجانبية للهاتف (Hamburger Menu)
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const hamburgerIcon = hamburger.querySelector('i');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburgerIcon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburgerIcon.className = 'fas fa-bars';
-      });
-    });
-
-    // 4. إبراز الرابط النشط أثناء التمرير في الصفحة الواحدة
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 150) {
-          current = section.getAttribute('id');
-        }
-      });
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        a.classList.remove('active');
-        // تفادي الخطأ في صفحات أخرى عند التمرير
-        if (a.getAttribute('href') === `#${current}` || a.getAttribute('href') === `index.html#${current}`) {
-          a.classList.add('active');
-        }
-      });
-    });
-
-    // 5. حركات الظهور عند التمرير (Scroll Reveal)
+    hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); hamburgerIcon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars'; });
+    document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('active'); hamburgerIcon.className = 'fas fa-bars'; }); });
     const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove('hidden');
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.remove('hidden'); entry.target.classList.add('active'); observer.unobserve(entry.target); } });
     }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
-
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-    
-    // 6. تحديد الصفحة النشطة حالياً في القائمة العلوية
     const currentPath = window.location.pathname.split('/').pop();
     document.querySelectorAll('.nav-links a').forEach(link => {
-      if (currentPath && link.getAttribute('href') === currentPath) {
-        link.classList.add('active');
-      } else if ((currentPath === '' || currentPath === 'index.html') && link.getAttribute('href') === 'index.html') {
-        link.classList.add('active');
-      }
+      if (link.getAttribute('href') === currentPath) link.classList.add('active');
     });
   </script>
 </body>
