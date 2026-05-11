@@ -1,56 +1,71 @@
 /* ============================================================
-   AZZUBAIR IBRAHIM — MULTI-PAGE GLASSMORPHISM PORTFOLIO
+   AZZUBAIR IBRAHIM — GLASSMORPHISM PORTFOLIO
    Theme: Tech Blue · Glass Effect · Perfect Circle Profile
    ============================================================ */
 
+/* استيراد الخط اليدوي للشعار فقط وخط Rakkas للاسم */
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap');
 
 :root {
+  /* الوضع الليلي */
   --bg-main: #0B1121;
   --bg-glass: rgba(30, 41, 59, 0.4);
   --bg-nav: rgba(11, 17, 33, 0.95);
+  
   --primary: #3B82F6;
   --primary-hover: #60A5FA;
   --primary-glass: rgba(59, 130, 246, 0.15);
+  
   --text-main: #F8FAFC;
   --text-muted: #94A3B8;
+  
   --border-glass: rgba(255, 255, 255, 0.08);
   --border-primary: rgba(59, 130, 246, 0.3);
+  
   --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-theme="light"] {
+}[data-theme="light"] {
+  /* الوضع النهاري */
   --bg-main: #F0F4F8;
   --bg-glass: rgba(255, 255, 255, 0.6);
   --bg-nav: rgba(255, 255, 255, 0.95);
+  
   --primary: #2563EB;
   --primary-hover: #1D4ED8;
   --primary-glass: rgba(37, 99, 235, 0.1);
+  
   --text-main: #0F172A;
   --text-muted: #475569;
+  
   --border-glass: rgba(255, 255, 255, 1);
   --border-primary: rgba(37, 99, 235, 0.3);
+  
   --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
-/* ── BASE & RESET ── */
+/* ── 1. BASE & RESET ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { scroll-behavior: smooth; max-width: 100vw; width: 100%; overflow-x: hidden; }
+html, body { 
+  scroll-behavior: smooth; 
+  max-width: 100vw; 
+  width: 100%; 
+  overflow-x: hidden; 
+}
 body {
   font-family: 'Calibri', system-ui, -apple-system, sans-serif !important;
   background-color: var(--bg-main); color: var(--text-main);
   line-height: 1.7; direction: rtl;
   transition: background-color var(--transition), color var(--transition);
   background-image: radial-gradient(circle at 15% 50%, var(--primary-glass), transparent 25%), radial-gradient(circle at 85% 30%, var(--primary-glass), transparent 25%);
-  background-attachment: fixed; word-wrap: break-word;
+  background-attachment: fixed;
+  word-wrap: break-word;
 }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-/* ── NAVBAR ── */
+/* ── 2. NAVBAR ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; background: var(--bg-nav);
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
@@ -72,14 +87,14 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .theme-toggle:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: rotate(30deg); }
 .hamburger { display: none; background: none; border: none; color: var(--text-main); font-size: 1.8rem; cursor: pointer; }
 
-/* ── HERO SECTION (HOME) ── */
+/* ── 3. HERO SECTION ── */
 #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 120px; padding-bottom: 60px; }
 .hero-wrapper { display: flex; align-items: center; justify-content: center; gap: 3rem; width: 100%; }
 .hero-text { flex: 1; max-width: 650px; }
 .hero-text h1 { font-family: 'Rakkas', serif !important; font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; color: var(--text-main); }
 .hero-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; }
 
-/* ── PAGE HERO (SERVICES & CONTACT) ── */
+/* ── PAGE HERO ── */
 .page-hero { padding-top: 140px; padding-bottom: 40px; text-align: center; }
 .page-hero h1 { font-family: 'Rakkas', serif !important; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; color: var(--primary); margin-bottom: 1rem; }
 .page-hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
@@ -109,7 +124,7 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 }
 .scarcity-text { color: var(--primary) !important; font-weight: bold; margin-bottom: 2rem !important; }
 
-/* ── HOW WE WORK ── */
+/* ── 4. HOW WE WORK (STEPS) ── */
 .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
 .step-card {
   background: var(--bg-glass); backdrop-filter: blur(16px); border: 1px solid var(--border-glass);
@@ -123,7 +138,7 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .step-card h3 { color: var(--text-main); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1.3rem;}
 .step-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 0; }
 
-/* ── SECTIONS & CARDS ── */
+/* ── 5. SECTIONS & CARDS ── */
 section { padding: 4rem 0; position: relative; }
 section:not(:last-of-type)::after {
   content: ''; position: absolute; bottom: 0; left: 15%; right: 15%; height: 1px;
@@ -158,7 +173,7 @@ section:not(:last-of-type)::after {
   font-size: 0.95rem; color: var(--text-main); font-weight: bold; opacity: 0.9;
 }
 
-/* ── PAYMENTS ── */
+/* ── 6. PAYMENTS ── */
 .payments-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
 .payment-card {
   background: #ffffff !important; border: 1px solid var(--border-glass); border-radius: 16px; padding: 2rem;
@@ -171,7 +186,7 @@ section:not(:last-of-type)::after {
 .payment-card span { font-weight: bold; font-size: 1.1rem; color: #0F172A !important; text-align: center; }
 .cash-icon { font-size: 3rem; color: #10B981; }
 
-/* ── TERMS GRID ── */
+/* ── 7. TERMS GRID ── */
 .terms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
 .term-card {
   background: var(--bg-glass); backdrop-filter: blur(16px); border: 1px solid var(--border-glass);
@@ -183,7 +198,7 @@ section:not(:last-of-type)::after {
 .term-content h3 { font-size: 1.25rem; color: var(--text-main); margin-bottom: 0.5rem; }
 .term-content p { font-size: 1rem; color: var(--text-muted); }
 
-/* ── CONTACT & FORM ── */
+/* ── 8. CONTACT & FORM ── */
 .contact-box {
   background: var(--bg-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass);
   border-radius: 32px; padding: 4rem 2rem; text-align: center; box-shadow: var(--shadow-glass);
@@ -217,7 +232,7 @@ section:not(:last-of-type)::after {
 .contact-item:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-3px); }
 .contact-links div.contact-item { padding: 0.4rem 1rem; font-size: 0.85rem; width: fit-content; height: fit-content; align-self: center; opacity: 0.85; }
 
-/* ── ABOUT PAGE STYLES ── */
+/* ── 9. ABOUT PAGE SPECIFIC STYLES ── */
 .about-card {
   background: var(--bg-glass); backdrop-filter: blur(16px); border: 1px solid var(--border-glass);
   border-radius: 28px; padding: 3rem; box-shadow: var(--shadow-glass); margin-bottom: 2rem;
@@ -240,11 +255,13 @@ section:not(:last-of-type)::after {
   border-radius: 50px; font-size: 0.95rem; font-weight: bold; color: var(--text-main); transition: var(--transition);
 }
 .page-nav a:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-2px); }
+
 .research-highlight {
   background: linear-gradient(135deg, var(--bg-glass), var(--primary-glass)); border: 1px solid var(--primary);
   border-radius: 24px; padding: 2.5rem; margin-bottom: 4rem; box-shadow: 0 10px 30px var(--primary-glass); position: relative;
 }
 .research-highlight i { position: absolute; top: 20px; left: 20px; font-size: 3rem; color: var(--primary); opacity: 0.2; }
+
 .subsection-title { font-size: 1.8rem; color: var(--text-main); margin-bottom: 2rem; text-align: center; }
 .resume-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; }
 .resume-header { display: flex; align-items: center; gap: 15px; margin-bottom: 2rem; color: var(--primary); }
@@ -263,18 +280,42 @@ section:not(:last-of-type)::after {
 }
 .part-time { font-size: 0.8rem; background: var(--bg-glass); border: 1px solid var(--border-glass); padding: 2px 8px; border-radius: 10px; color: var(--text-muted); margin-right: 10px; }
 .timeline-item p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
-.cert-box { margin-bottom: 1.5rem; }
-.badge-tag {
-  display: inline-flex; align-items: center; gap: 8px; background: var(--primary-glass); color: var(--primary);
-  padding: 8px 18px; border-radius: 50px; font-size: 0.95rem; font-weight: bold; margin-bottom: 8px; border: 1px solid var(--border-primary);
-}
-.cert-box p { margin-top: 0; color: var(--text-muted); font-size: 1rem; }
+
+/* اللغات */
 .lang-container { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
 .lang-tag {
   background: var(--bg-glass); border: 1px solid var(--border-glass); color: var(--text-main);
   padding: 8px 18px; border-radius: 50px; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; box-shadow: var(--shadow-glass);
 }
 .lang-tag strong { color: var(--primary); }
+
+/* ── 10. التحديثات الجديدة (الشهادات الزجاجية والتفاعل) ── */
+
+/* الشهادات والجوائز (Mini Cards) */
+.cert-box {
+  background: rgba(255, 255, 255, 0.03); 
+  border: 1px solid var(--border-glass);
+  padding: 1.2rem;
+  border-radius: 16px;
+  margin-bottom: 1.2rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+[data-theme="light"] .cert-box { background: rgba(0, 0, 0, 0.02); }
+.cert-box:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-glass);
+  transform: translateX(-5px); 
+}
+.cert-box .badge-tag {
+  display: inline-flex; align-items: center; gap: 8px; 
+  background: var(--primary-glass); color: var(--primary);
+  padding: 8px 18px; border-radius: 50px; font-size: 0.95rem; font-weight: bold; 
+  margin-bottom: 12px; border: 1px solid var(--border-primary);
+}
+.cert-box p { margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
+
+/* الكفاءات الأساسية التفاعلية */
 .competency-tags { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
 .comp-tag {
   background: var(--bg-main); border: 1px solid var(--border-glass); color: var(--text-muted);
@@ -282,19 +323,37 @@ section:not(:last-of-type)::after {
 }
 .comp-tag:hover { border-color: var(--primary); color: var(--text-main); transform: translateX(-5px); }
 
-/* ── CTA BOTTOM ── */
+.hidden-tag { display: none; }
+.competency-tags.expanded .hidden-tag {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+.expand-tags-btn {
+  background: transparent; border: none; color: var(--primary); font-family: inherit;
+  font-size: 0.95rem; font-weight: bold; cursor: pointer; display: inline-flex;
+  align-items: center; gap: 8px; margin-top: 8px; padding: 5px 10px; border-radius: 8px; transition: var(--transition);
+}
+.expand-tags-btn:hover { background: var(--primary-glass); }
+.expand-tags-btn i { transition: transform 0.3s ease; }
+.expand-tags-btn.active i { transform: rotate(180deg); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .about-cta {
   text-align: center; padding: 4rem 2rem; background: var(--bg-glass); border-radius: 32px;
   border: 1px solid var(--border-glass); margin: 2rem auto; max-width: 800px;
 }
 
-/* ── ANIMATIONS & FOOTER ── */
+/* ── 11. SAFE ANIMATIONS & FOOTER ── */
 footer { text-align: center; padding: 2rem; color: var(--text-muted); position: relative; }
 .reveal { transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
 .reveal.hidden { opacity: 0; transform: translateY(30px); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
+/* ── 12. RESPONSIVE ── */
 @media (max-width: 992px) {
   .hero-wrapper { flex-direction: column-reverse; text-align: center; }
   .btn-group { justify-content: center; }
@@ -311,12 +370,14 @@ footer { text-align: center; padding: 2rem; color: var(--text-muted); position: 
   }
   .nav-links.active { clip-path: circle(150% at top right); }
   .nav-links a { font-size: 1.2rem; display: block; text-align: center; }
+  
   .form-group { flex-direction: column; }
   .hero-stats { justify-content: center; flex-wrap: wrap; }
   .contact-item { width: 100%; justify-content: center; }
   .terms-grid { grid-template-columns: 1fr; }
   .term-card { flex-direction: column; align-items: center; text-align: center; }
   .term-icon { margin-top: 0; margin-bottom: 1rem; }
+  
   .about-card { padding: 1.5rem; }
   .about-card-wrapper { flex-direction: column-reverse; text-align: center; gap: 2rem;}
   .personal-voice { text-align: right; font-size: 1.1rem; }
