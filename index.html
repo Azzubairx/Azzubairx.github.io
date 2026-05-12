@@ -180,22 +180,20 @@
       const href = link.getAttribute('href');
       if ((currentPath === '' && href === 'index.html') || href === currentPath) { link.classList.add('active'); }
     });
-  </script>
-// === نظام العداد الفعلي (Real Visitor Counter) ===
+  
+  <script>
+    // === نظام العداد الفعلي (Real Visitor Counter) ===
     async function initVisitorCounter() {
       const counterEl = document.getElementById('visit-count');
       if (!counterEl) return;
       
-      // نستخدم sessionStorage لضمان عدم تضخم العداد عند انتقال الزائر بين صفحات موقعك في نفس اللحظة
       const hasVisited = sessionStorage.getItem('azzubair_visited');
-      
-      // مساحة خاصة بموقعك في قاعدة بيانات CounterAPI
       const namespace = 'azzubair-portfolio-2026'; 
       const key = 'visits';
       let url = `https://api.counterapi.dev/v1/${namespace}/${key}`;
       
       if (!hasVisited) {
-        url += '/up'; // تسجيل زيارة جديدة إذا كانت هذه أول صفحة يفتحها الزائر في هذه الجلسة
+        url += '/up'; 
         sessionStorage.setItem('azzubair_visited', 'true');
       }
       
@@ -203,7 +201,6 @@
         const response = await fetch(url);
         const data = await response.json();
         
-        // تأثير حركي جميل (Animation) لتصاعد الرقم عند ظهوره
         let start = Math.max(0, data.count - 40);
         const end = data.count;
         const duration = 1000; 
@@ -211,7 +208,7 @@
         
         const timer = setInterval(() => {
           start += 1;
-          counterEl.innerText = start.toLocaleString('en-US'); // سيظهر الرقم منسقاً هكذا: 1,234
+          counterEl.innerText = start.toLocaleString('en-US');
           if (start >= end) {
             counterEl.innerText = end.toLocaleString('en-US');
             clearInterval(timer);
@@ -227,5 +224,6 @@
     // تشغيل العداد
     initVisitorCounter();
   </script>
+  <!-- 👆👆 نهاية كود العداد 👆👆 -->
 </body>
 </html>
