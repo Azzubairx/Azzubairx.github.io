@@ -278,26 +278,17 @@
   </footer>
 
   <script data-goatcounter="https://azzubairx.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://azzubairx.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script>
-    function toggleTags(id, btn) {
-      const container = document.getElementById(id);
-      container.classList.toggle('expanded');
-      btn.classList.toggle('active');
-      if(container.classList.contains('expanded')) {
-        btn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء التفاصيل';
-      } else {
-        btn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض التفاصيل';
-      }
-    }
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('hidden'));
-    const toggle = document.getElementById('themeToggle');
+    
     const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
     const icon = toggle.querySelector('i');
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-    let currentTheme = 'dark';
-    if (savedTheme) { currentTheme = savedTheme; } else if (systemPrefersLight) { currentTheme = 'light'; }
-    if (currentTheme === 'light') { root.setAttribute('data-theme', 'light'); icon.className = 'fas fa-sun'; } else { root.setAttribute('data-theme', 'dark'); icon.className = 'fas fa-moon'; }
+    
+    // ضبط الأيقونة حسب السمة المحملة
+    if (root.getAttribute('data-theme') === 'light') { icon.className = 'fas fa-sun'; } else { icon.className = 'fas fa-moon'; }
+    
     toggle.addEventListener('click', () => {
       const isDark = root.getAttribute('data-theme') === 'dark';
       const newTheme = isDark ? 'light' : 'dark';
@@ -305,6 +296,7 @@
       icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
       localStorage.setItem('theme', newTheme);
     });
+
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
       if (!localStorage.getItem('theme')) {
         const newTheme = e.matches ? 'light' : 'dark';
@@ -312,18 +304,22 @@
         icon.className = e.matches ? 'fas fa-sun' : 'fas fa-moon';
       }
     });
+
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const hamburgerIcon = hamburger.querySelector('i');
     hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); hamburgerIcon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars'; });
     document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('active'); hamburgerIcon.className = 'fas fa-bars'; }); });
+    
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.remove('hidden'); entry.target.classList.add('active'); observer.unobserve(entry.target); } });
     }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    
     const currentPath = window.location.pathname.split('/').pop();
     document.querySelectorAll('.nav-links a').forEach(link => {
-      if (link.getAttribute('href') === currentPath) link.classList.add('active');
+      const href = link.getAttribute('href');
+      if ((currentPath === '' && href === 'index.html') || href === currentPath) { link.classList.add('active'); }
     });
   </script>
 </body>
