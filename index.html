@@ -182,5 +182,45 @@
       if ((currentPath === '' && href === 'index.html') || href === currentPath) { link.classList.add('active'); }
     });
   </script>
+
+<!-- سكربت العداد المباشر من GoatCounter -->
+  <script>
+    async function initGoatCounter() {
+      const counterEl = document.getElementById('visit-count');
+      if (!counterEl) return;
+      
+      try {
+        // جلب إجمالي الزيارات من حسابك عبر مسار TOTAL الذي يوفره GoatCounter
+        const response = await fetch('https://azzubairx.goatcounter.com/counter/TOTAL.json');
+        if (!response.ok) throw new Error('لا يمكن الوصول للعداد');
+        
+        const data = await response.json();
+        
+        // الأداة ترجع الرقم مع فواصل (مثال: "1,234")، لذا نُزيل الفواصل لنتمكن من تحريك الرقم برمجياً
+        const endCount = parseInt(data.count.replace(/,/g, ''), 10);
+        
+        // تأثير حركي لتصاعد الرقم بنعومة
+        let start = Math.max(0, endCount - 40);
+        const duration = 1000; 
+        const stepTime = Math.abs(Math.floor(duration / 40));
+        
+        const timer = setInterval(() => {
+          start += 1;
+          counterEl.innerText = start.toLocaleString('en-US');
+          if (start >= endCount) {
+            counterEl.innerText = data.count; // وضع الرقم النهائي الصحيح والمنسق
+            clearInterval(timer);
+          }
+        }, stepTime);
+        
+      } catch (err) {
+        console.error("تعذر جلب عداد GoatCounter:", err);
+        counterEl.innerHTML = '<span style="font-size:1rem;">نشِط</span>';
+      }
+    }
+    
+    // تشغيل العداد فور تحميل الصفحة
+    initGoatCounter();
+  </script>
 </body>
 </html>
