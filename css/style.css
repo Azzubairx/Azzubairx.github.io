@@ -436,12 +436,11 @@ footer { text-align: center; padding: 2rem; color: var(--text-muted); position: 
   .contact-box { padding: 2rem 1rem; }
 }
 
-/* ── 10. GOATCOUNTER VISITOR COUNTER (MINIMAL) ── */
+/* ── 10. GOATCOUNTER VISITOR COUNTER (MINIMAL & INLINE) ── */
 .glass-counter-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 1.5rem; /* تقريب العداد من نص الحقوق */
-  margin-bottom: 1.5rem; /* إعطاء مسافة للخط الفاصل */
+  margin-bottom: 1.5rem; /* مسافة بين العداد والخط الفاصل */
   opacity: 0.85;
 }
 .glass-counter {
@@ -451,7 +450,7 @@ footer { text-align: center; padding: 2rem; color: var(--text-muted); position: 
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-glass);
-  padding: 6px 18px; /* تصغير الهوامش بشكل كبير */
+  padding: 6px 16px; /* هوامش مصغرة جداً */
   border-radius: 50px;
   box-shadow: var(--shadow-glass);
   transition: all 0.4s ease;
@@ -463,42 +462,47 @@ footer { text-align: center; padding: 2rem; color: var(--text-muted); position: 
   opacity: 1;
 }
 .counter-data {
-  text-align: center; /* توسيط النص بعد إزالة الأيقونة */
-  line-height: 1.3;
+  display: flex;
+  flex-direction: row; /* جعل النص والرقم على نفس السطر */
+  align-items: center;
+  gap: 8px; /* مسافة خفيفة بين الكلمة والرقم */
+}
+.counter-label, .counter-number {
+  font-size: 0.9rem; /* توحيد حجم الخط للكلمة والرقم */
+  font-weight: bold;
 }
 .counter-label {
-  font-size: 0.75rem; /* تصغير النص */
   color: var(--text-muted);
-  font-weight: bold;
 }
 .counter-number {
-  font-size: 1.1rem; /* تصغير الرقم */
   color: var(--text-main);
-  font-weight: bold;
   font-family: system-ui, -apple-system, sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   direction: ltr; 
 }
 
-/* تصميم الخط الفاصل الجديد */
+/* تصميم الخط الفاصل */
 .footer-divider {
   display: block;
   width: 60px;
   height: 2px;
   background: var(--primary);
-  margin: 0 auto; /* توسيط الخط */
+  margin: 0 auto 1.5rem auto; /* توسيط الخط ومسافة أسفله */
   border-radius: 2px;
   opacity: 0.5;
 }
 
-/* تعديل بسيط على الفوتر لإزالة الخط القديم */
+/* تعديل الفوتر العام */
 footer {
   text-align: center;
-  padding: 2.5rem 0 2rem 0; /* تعديل الهوامش لتناسب الترتيب الجديد */
+  padding: 2rem 0; 
   color: var(--text-muted);
   position: relative;
-  font-size: 0.93rem;
 }
 footer::before {
-  content: none; /* إيقاف الخط القديم الذي كان يظهر تلقائياً */
+  content: none; /* إيقاف الخط القديم */
+}
+.copyright-text {
+  font-size: 0.93rem;
+  margin: 0;
 }
